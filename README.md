@@ -17,7 +17,9 @@ import (
 func main() {
 	u := new(generater.URL)
 	u.Ini(true, "ja", "hello") 
-    /*If you in China,first parameter pls enter true.The second parameter is language code(iso-639-1 language code) that you wanana translated.The last parameter is text that you wanana translated.*/
+    /*If you in China,first parameter pls enter true.
+	The second parameter is language code(iso-639-1 language code) that you wanana translated.
+	The last parameter is text that you wanana translated.*/
 	r := new(unmarshal.RawText)
 	fmt.Println(r.Convert(u.Get())) //Convert json to string.
 }
