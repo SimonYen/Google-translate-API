@@ -25,6 +25,6 @@ func main() {
 }
 ```
 ***
-## Anthor
+## Author
 颜曾一(simonyen@foxmail.com)
 Feel free to contract me if you need further help.
