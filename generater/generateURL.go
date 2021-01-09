@@ -1,10 +1,8 @@
 package generater
 
 import (
-	"fmt"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 )
 
 //URL fuck golint.
@@ -32,17 +30,9 @@ func (u *URL) Ini(inChina bool, dl, text string) {
 
 //Get get json.
 func (u *URL) Get() []byte {
-	parm := url.Values{}
-	parm.Set("sl", u.srcLanguage)
-	parm.Set("tl", u.desLanguage)
-	parm.Set("q", u.text)
-	U, err := url.ParseRequestURI(u.prefixURL)
-	if err != nil {
-		panic(err)
-	}
-	U.RawQuery = parm.Encode()
-	fmt.Println(U.String())
-	resp, err := http.Get(U.String())
+	var U string
+	U = u.prefixURL + "&sl=" + u.srcLanguage + "&tl=" + u.desLanguage + "&q=" + u.text
+	resp, err := http.Get(U)
 	if err != nil {
 		panic(err)
 	}
